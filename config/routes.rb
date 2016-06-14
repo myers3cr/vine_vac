@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  resources :profiles, except: [:show, :destroy]
+
   devise_for :members
   
   get 'home/index'

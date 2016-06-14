@@ -28,6 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 # Use Bootstrap for the UI
 gem 'bootstrap-sass'
+# Use simple_form for creating forms
+gem 'simple_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -39,24 +41,25 @@ gem 'bootstrap-sass'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  group :development, :test do
-    gem 'better_errors'
-    gem 'capybara-email'
-    gem 'capybara-webkit'
-    gem 'factory_girl_rails'
-    gem 'ffaker'
-    gem 'database_cleaner'
-    gem 'letter_opener'
-    gem 'rspec-rails'
-    gem 'pry'
-    gem 'pry-nav'
-    gem 'pry-rails', '~> 0.3.2'
-    gem 'simple_bdd'
-    gem 'shoulda-matchers'
-    gem 'spring' 
-  end 
+  gem 'better_errors'
+  gem 'capybara-email'
+  gem 'capybara-webkit'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'database_cleaner'
+  gem 'letter_opener'
+  gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails', '~> 0.3.2'
+  gem 'simple_bdd'
+  gem 'shoulda-matchers'
+  gem 'spring' 
 end
+
+# group :test do
+#   gem 'database_cleaner'
+# end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views

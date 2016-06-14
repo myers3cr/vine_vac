@@ -1,0 +1,47 @@
+<h1>Your Profile</h1>
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited your profile from being saved:</h2>
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <div class="field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, size: 20, autofocus: "autofocus" %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, size: 20 %>
+    </div>
+    <div class="field">
+      <%= f.label :address_1 %>
+      <%= f.text_field :address_1, size: 50 %>
+    </div>
+    <div class="field">
+      <%= f.label :address_2 %>
+      <%= f.text_field :address_2, size:50 %>
+    </div>
+    <div class="field">
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+
+      <%= f.label :state %>
+      <%= f.text_field :state, size: 5 %>
+
+      <%= f.label :postal_code %>
+      <%= f.text_field :postal_code, size: 10%>
+    </div>
+   </fieldset>
+
+    <div class="actions">
+    <br />
+      <%= f.submit "Save", class: "btn btn-primary" %>&nbsp;<%= link_to 'Cancel', root_path %>
+    </div>
+<% end %>
+

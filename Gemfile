@@ -30,6 +30,11 @@ gem 'devise'
 gem 'bootstrap-sass'
 # Use simple_form for creating forms
 gem 'simple_form'
+# Use paperclip and S3 for profile picture attachments
+gem 'paperclip', '~>5.0.0.beta1'
+gem 'aws-sdk', '~> 2.3'
+# Use figaro for environment variables
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -46,7 +51,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'ffaker'
-  gem 'database_cleaner'
+#  gem 'database_cleaner'
   gem 'letter_opener'
   gem 'rspec-rails'
   gem 'pry'
@@ -57,9 +62,9 @@ group :development, :test do
   gem 'spring' 
 end
 
-# group :test do
-#   gem 'database_cleaner'
-# end
+group :test do
+  gem 'database_cleaner'
+end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views

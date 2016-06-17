@@ -10,9 +10,7 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    begin
       @profile = Profile.new      
-    end
   end
 
   def edit
@@ -34,13 +32,13 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params)
       redirect_to root_path, notice: "Profile updated successfully."
     else
-      render action: "new"
+      render action: "edit"
     end   
   end
   
   def profile_params
     params.require(:profile).permit(:member_id, :first_name, :last_name, :address_1, :address_2,
-      :city, :state, :postal_code )
+      :city, :state, :postal_code, :profile_pic )
   end
 
 end

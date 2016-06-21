@@ -42,6 +42,7 @@
     </div>
     
     <div>
+      <%= image_tag @profile.profile_pic.url(:small), class: "pull-left", id: "profile-pic" %>
       <%= f.label :profile_pic %>
       <%= f.file_field :profile_pic %>
     </div>

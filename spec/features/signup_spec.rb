@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "signing up" do
+feature "Visitor must be able to sign up" do
   let(:member) { FactoryGirl.build(:member) }
 
   def fill_in_signup_fields

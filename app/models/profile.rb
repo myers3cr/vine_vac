@@ -11,4 +11,13 @@ class Profile < ActiveRecord::Base
     styles: { small: "100x100" },
     default_url: "missing-image.jpeg"
   validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
+
+  def full_name
+    [first_name, last_name].join(' ')
+  end
+
+  def csz
+    [[city, state].join(','), postal_code].join(' ')
+  end
+
 end

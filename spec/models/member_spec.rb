@@ -2,16 +2,22 @@ require 'rails_helper'
 
 RSpec.describe Member, type: :model do
 
+  let(:member) { FactoryGirl.build(:member) }
+
   it "has a valid factory" do
-    expect(build(:member)).to be_valid
+    expect(member).to be_valid
   end
 
-  it "is invalid without a first_name" do
-    expect(build(:member, email: nil)).to be_invalid
+  it "is invalid without email" do
+    member.email = nil
+    expect(member).to be_invalid
+    expect(member.errors[:email]).to include "can't be blank"
   end
     
-  it "is invalid without a last_name" do
-    expect(build(:member, password: nil)).to be_invalid
+  it "is invalid without a password" do
+    member.password = nil
+    expect(member).to be_invalid
+    expect(member.errors[:password]).to include "can't be blank"
   end
   
 end

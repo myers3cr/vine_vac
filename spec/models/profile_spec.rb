@@ -2,32 +2,54 @@ require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
 
+  let(:profile) { FactoryGirl.build(:profile) }
+
   it "has a valid factory" do
-    expect(build(:profile)).to be_valid
+    expect(profile).to be_valid
   end
 
   it "is invalid without a first_name" do
-    expect(build(:profile, first_name: nil)).to be_invalid
+    profile.first_name = nil
+    expect(profile).to be_invalid
+    expect(profile.errors[:first_name]).to include("can't be blank")
   end
     
   it "is invalid without a last_name" do
-    expect(build(:profile, last_name: nil)).to be_invalid
+    profile.last_name = nil
+    expect(profile).to be_invalid
+    expect(profile.errors[:last_name]).to include("can't be blank")
   end
   
   it "is invalid without an address_1" do
-    expect(build(:profile, address_1: nil)).to be_invalid
+    profile.address_1 = nil
+    expect(profile).to be_invalid
+    expect(profile.errors[:address_1]).to include("can't be blank")
   end
   
   it "is invalid without a city" do
-    expect(build(:profile, city: nil)).to be_invalid
+    profile.city = nil
+    expect(profile).to be_invalid
+    expect(profile.errors[:city]).to include("can't be blank")
   end
 
   it "is invalid without a state" do
-    expect(build(:profile, state: nil)).to be_invalid
+    profile.state = nil
+    expect(profile).to be_invalid
+    expect(profile.errors[:state]).to include("can't be blank")
   end
 
   it "is invalid without a postal_code" do
-    expect(build(:profile, postal_code: nil)).to be_invalid
+    profile.postal_code = nil
+    expect(profile).to be_invalid
+    expect(profile.errors[:postal_code]).to include("can't be blank")
+  end
+
+  it "returns the member's full name" do
+    expect(profile.full_name).to eq (profile.first_name + " " + profile.last_name)
+  end
+
+  it "returns the member's city, state and zip as a single string" do
+    expect(profile.csz).to eq (profile.city + "," + profile.state + " " + profile.postal_code)
   end
 
 end

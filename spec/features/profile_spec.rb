@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'member must have a profile' do
+feature 'Member must have a profile' do
   let(:member) { FactoryGirl.create(:member) }
   let(:profile) { FactoryGirl.create(:profile) }
 
@@ -8,12 +8,13 @@ feature 'member must have a profile' do
     visit root_path
     sign_in
     click_link "Profile"
+    expect(page.find('#profile-pic')['src']).to have_content 'missing-image'
     fill_in_profile_fields
     click_button "Save"
     expect(page).to have_content("Profile updated successfully.")
   end
 
-  scenario "add optional profile picture" do
+  scenario "adding optional profile picture" do
     visit root_path
     sign_in
     click_link "Profile"
@@ -23,6 +24,9 @@ feature 'member must have a profile' do
     click_button "Save"
     profile = Profile.last
     expect(profile).to have_attributes(profile_pic_file_name: a_value)
+    visit root_path
+    click_link "Profile"
+    expect(page.find('#profile-pic')['src']).to have_content profile.profile_pic_file_name
   end
 
   def sign_in

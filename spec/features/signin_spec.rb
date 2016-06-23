@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "signing in" do
+feature "Member must be able to sign in" do
   let(:member) { FactoryGirl.create(:member) }
 
   def fill_in_signin_fields

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "visiting the homepage" do
+feature "There must be a homepage" do
 
   before(:each) do
     visit root_path

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Profile, type: :model do
+describe Profile, type: :model do
 
   let(:profile) { FactoryGirl.build(:profile) }
 

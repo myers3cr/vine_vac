@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Member, type: :model do
+describe Member, type: :model do
 
   let(:member) { FactoryGirl.build(:member) }
 

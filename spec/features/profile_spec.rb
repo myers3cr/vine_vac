@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pathname'
 
 feature 'Member must have a profile' do
   let(:member) { FactoryGirl.create(:member) }
@@ -19,11 +20,12 @@ feature 'Member must have a profile' do
     sign_in
     click_link "Profile"
     fill_in_profile_fields
-    profile_pic_path = "spec/files/profile_pic.png"
-    attach_file "profile[profile_pic]", profile_pic_path
+    pic_path = Pathname.new("spec/files/profile_pic.png")
+    pic_name = pic_path.basename.to_s
+    attach_file "profile[profile_pic]", pic_path
     click_button "Save"
     profile = Profile.last
-    expect(profile).to have_attributes(profile_pic_file_name: a_value)
+    expect(profile).to have_attributes(profile_pic_file_name: pic_name)
     visit root_path
     click_link "Profile"
     expect(page.find('#profile-pic')['src']).to have_content profile.profile_pic_file_name

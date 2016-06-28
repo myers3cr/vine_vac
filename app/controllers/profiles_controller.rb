@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
 
+  before_action :authenticate_member!
+
   def index
     @profile = current_member.profile
     if @profile.nil?
@@ -11,14 +13,17 @@ class ProfilesController < ApplicationController
 
   def new
       @profile = Profile.new      
+      authorize @profile
   end
 
   def edit
     @profile = current_member.profile
+    authorize @profile
   end
 
   def create
     @profile = Profile.new(profile_params)
+    authorize @profile
     @profile.member_id = current_member.id
     if @profile.save
       redirect_to root_path, notice: "Profile updated successfully."
@@ -29,6 +34,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = current_member.profile
+    authorize @profile
     if @profile.update(profile_params)
       redirect_to root_path, notice: "Profile updated successfully."
     else

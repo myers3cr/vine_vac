@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # crm
 # Use devise for authentication
 gem 'devise'
+# Use pundit for authorization
+gem 'pundit'
 # Use Bootstrap for the UI
 gem 'bootstrap-sass'
 # Use simple_form for creating forms

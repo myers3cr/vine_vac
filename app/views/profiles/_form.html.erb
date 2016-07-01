@@ -1,5 +1,6 @@
-<h1>Your Profile</h1>
-<%= form_for @profile, html: { multipart: true } do |f| %>
+<div class="authform">
+<%= form_for @profile, html: { multipart: true, role: "form" } do |f| %>
+  <h3>Edit your profile</h3>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited your profile from being saved:</h2>
@@ -11,46 +12,44 @@
     </div>
   <% end %>
 
-  <fieldset>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :first_name %>
-      <%= f.text_field :first_name, size: 20, autofocus: "autofocus" %>
-
+      <%= f.text_field :first_name, class: 'form-control-sm', size: 20, autofocus: "autofocus" %>
+    </div>
+    <div class="form-group">
       <%= f.label :last_name %>
-      <%= f.text_field :last_name, size: 20 %>
+      <%= f.text_field :last_name, class: 'form-control-sm', size: 20 %>
     </div>
-
-    <div class="field">
+    <div class="form-group">
       <%= f.label :address_1 %>
-      <%= f.text_field :address_1, size: 50 %>
+      <%= f.text_field :address_1, class: 'form-control-sm', size: 20 %>
     </div>
-    
-    <div class="field">
+    <div class="form-group">
       <%= f.label :address_2 %>
-      <%= f.text_field :address_2, size:50 %>
+      <%= f.text_field :address_2, class: 'form-control-sm', size: 20 %>
     </div>
-    
-    <div class="field">
+    <div class="form-group">
       <%= f.label :city %>
-      <%= f.text_field :city %>
-
-      <%= f.label :state %>
-      <%= f.text_field :state, size: 5 %>
-
-      <%= f.label :postal_code %>
-      <%= f.text_field :postal_code, size: 10 %>
+      <%= f.text_field :city, class: 'form-control-sm' %>
     </div>
-    
-    <div>
-      <%= image_tag @profile.profile_pic.url(:small), class: "pull-left", id: "profile-pic" %>
-      <%= f.label :profile_pic %>
+    <div class="form-group">
+      <%= f.label :state %>
+      <%= f.text_field :state, class: 'form-control-sm', size: 5 %>
+    </div>
+    <div class="form-group">
+      <%= f.label :postal_code %>
+      <%= f.text_field :postal_code, class: 'form-control-sm', size: 10 %>
+    </div>  
+    <div class="form-group">
+      <%= f.label :profile_pic, "Profile Image" %>
+      <div class="text-left">
+        <%= image_tag @profile.profile_pic.url(:small), id: "profile-pic" %>
+      </div>
       <%= f.file_field :profile_pic %>
     </div>
-   </fieldset>
-
     <div class="actions">
-    <br />
       <%= f.submit "Save", class: "btn btn-primary" %>&nbsp;<%= link_to 'Cancel', root_path %>
     </div>
 <% end %>
+</div>
 

@@ -11,7 +11,7 @@ feature "Visitor must be able to sign up" do
 
   scenario "visiting the site to sign up" do
     visit root_path
-    click_button "Join Us!"
+    click_link "I've seen enough. Sign me up!"
     fill_in_signup_fields
     expect {
       click_button "Sign up"

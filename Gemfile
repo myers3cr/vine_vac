@@ -37,6 +37,8 @@ gem 'paperclip', '~>5.0.0.beta1'
 gem 'aws-sdk', '~> 2.3'
 # Use figaro for environment variables
 gem 'figaro'
+# Handle static pages
+gem 'high_voltage', '~> 3.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

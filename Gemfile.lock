@@ -106,6 +106,7 @@ GEM
       thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    high_voltage (3.0.0)
     i18n (0.7.0)
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -263,6 +264,7 @@ DEPENDENCIES
   factory_girl_rails
   ffaker
   figaro
+  high_voltage (~> 3.0.0)
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener

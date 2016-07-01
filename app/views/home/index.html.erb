@@ -3,5 +3,12 @@
   <p>Your New York Finger Lakes winery getaway awaits!</p>
   <%= image_tag "vineyard.jpg" %>
   <p></p>
-  <%= button_to('Join Us!', new_member_registration_path, method: 'get', class: 'btn btn-primary') %>
+  <%= link_to "Find out more", 
+    page_path('about'), 
+    class: 'btn btn-default', 
+    type: "button" %>
+  <%= link_to "I've seen enough. Sign me up!",
+    new_member_registration_path, 
+    class: 'btn btn-primary', 
+    type: "button" %>
 </div>

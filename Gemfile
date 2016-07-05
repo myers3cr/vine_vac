@@ -41,6 +41,8 @@ gem 'figaro'
 gem 'high_voltage', '~> 3.0.0'
 # Handle the contact email form
 gem 'mail_form'
+# Deploy to Heroky
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

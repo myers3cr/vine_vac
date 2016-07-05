@@ -39,6 +39,8 @@ gem 'aws-sdk', '~> 2.3'
 gem 'figaro'
 # Handle static pages
 gem 'high_voltage', '~> 3.0.0'
+# Handle the contact email form
+gem 'mail_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -54,8 +56,10 @@ group :development, :test do
   gem 'capybara-email'
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'ffaker'
 #  gem 'database_cleaner'
+  gem 'launchy'
   gem 'letter_opener'
   gem 'rspec-rails'
   gem 'pry'

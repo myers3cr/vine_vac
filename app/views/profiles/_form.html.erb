@@ -1,4 +1,4 @@
-<div class="authform">
+<div class="profileform">
 <%= form_for @profile, html: { multipart: true, role: "form" } do |f| %>
   <h3>Edit your profile</h3>
   <% if @profile.errors.any? %>
@@ -14,19 +14,19 @@
 
     <div class="form-group">
       <%= f.label :first_name %>
-      <%= f.text_field :first_name, class: 'form-control-sm', size: 20, autofocus: "autofocus" %>
+      <%= f.text_field :first_name, class: 'form-control-sm',size: 50, autofocus: "autofocus" %>
     </div>
     <div class="form-group">
       <%= f.label :last_name %>
-      <%= f.text_field :last_name, class: 'form-control-sm', size: 20 %>
+      <%= f.text_field :last_name, class: 'form-control-sm', size: 50 %>
     </div>
     <div class="form-group">
       <%= f.label :address_1 %>
-      <%= f.text_field :address_1, class: 'form-control-sm', size: 20 %>
+      <%= f.text_field :address_1, class: 'form-control-sm', size: 50 %>
     </div>
     <div class="form-group">
       <%= f.label :address_2 %>
-      <%= f.text_field :address_2, class: 'form-control-sm', size: 20 %>
+      <%= f.text_field :address_2, class: 'form-control-sm', size: 50 %>
     </div>
     <div class="form-group">
       <%= f.label :city %>

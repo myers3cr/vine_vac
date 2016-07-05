@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :profiles, except: [:show, :destroy]
+  resources :contacts, only: [:new, :create]
 
   devise_for :members
   

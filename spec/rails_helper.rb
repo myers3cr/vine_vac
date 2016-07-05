@@ -7,6 +7,7 @@
   require 'simple_bdd'
   require 'shoulda/matchers'
   require 'pundit/rspec'
+  require 'capybara/email/rspec'
   
   Capybara.javascript_driver = :webkit
 

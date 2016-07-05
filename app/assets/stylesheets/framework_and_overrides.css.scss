@@ -84,3 +84,23 @@ section {
 .btn-primary {
   background-color: green;
 }
+.profileform {
+  padding-top: 30px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.profileform form {
+  @extend .well;
+  @extend .well-lg;
+  padding-bottom: 40px;
+}
+.profileform .right {
+  float: right !important;
+}
+.profileform .button {
+  @extend .btn;
+  @extend .btn-primary;
+}
+.profileform fieldset {
+  @extend .well;
+}

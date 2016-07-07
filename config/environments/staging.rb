@@ -24,8 +24,13 @@ Rails.application.configure do
     authentication:       :plain,
     enable_starttls_auto: true
   }
+  # add password protection to staging
+  config.middleware.insert_before(::Rack::Runtime, "::Rack::Auth::Basic", "Staging") do |u, p|
+    u == ENV["STAGING_USERNAME"] && p == ENV["STAGING_PASSWORD"]
+  end
 
-# Code is not reloaded between requests.
+
+  # Code is not reloaded between requests.
   config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and

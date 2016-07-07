@@ -69,7 +69,10 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
   gem 'simple_bdd'
   gem 'shoulda-matchers'
-  gem 'spring' 
+  gem 'spring'
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-passenger'
 end
 
 group :test do

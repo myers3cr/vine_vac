@@ -25,7 +25,7 @@ role :app, %w(deploy@104.131.31.131)
 role :web, %w(deploy@104.131.31.131)
 role :db, %w(deploy@104.131.31.131), primary: true
 
-set :branch, "master"
+set :branch, "staging"
 set :rails_env, "staging"
 set :deploy_to, '/var/www/vine_vac_staging'
 

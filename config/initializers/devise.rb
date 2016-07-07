@@ -14,7 +14,7 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'myers3.cr@gmail.com'
 
-  config.secret_key = ENV['DEVISE_SECRET_KEY' ] ? Rails.env.production? : Rails.env.staging?
+  config.secret_key = ENV['DEVISE_SECRET_KEY']
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

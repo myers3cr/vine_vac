@@ -29,7 +29,6 @@ Rails.application.configure do
     u == ENV["STAGING_USERNAME"] && p == ENV["STAGING_PASSWORD"]
   end
 
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 

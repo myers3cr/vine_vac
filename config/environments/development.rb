@@ -4,6 +4,7 @@ Rails.application.configure do
   # crm
   # add path to imagemagick
   Paperclip.options[:command_path] = "/usr/local/bin/"
+  
   # Paperclip storage settings
   config.paperclip_defaults = {
     storage: :s3,

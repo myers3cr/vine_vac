@@ -18,7 +18,7 @@ staging:
   <<: *default
   database: vine_vac_staging
   username: deploy
-  password: <%= ENV['DATABASE PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 production:
   <<: *default

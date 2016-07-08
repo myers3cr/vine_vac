@@ -70,9 +70,6 @@ group :development, :test do
   gem 'simple_bdd'
   gem 'shoulda-matchers'
   gem 'spring'
-  gem 'capistrano', '~> 3.4.0'
-  gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-passenger'
 end
 
 group :test do
@@ -85,5 +82,9 @@ group :development do
   # crm
   # Generate the files for application layout, nav links, flash with Bootstrap CSS
   gem 'rails_layout'
+  # Use capostrano for DigitalOcean deploy
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-passenger'
 end
 

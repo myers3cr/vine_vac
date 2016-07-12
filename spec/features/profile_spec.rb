@@ -3,7 +3,7 @@ require 'pathname'
 
 feature 'Member must have a profile' do
   let(:member) { FactoryGirl.create(:member) }
-  let(:profile) { FactoryGirl.create(:profile) }
+  let(:profile) { FactoryGirl.build(:profile) }
 
   scenario "filling in the profile form" do
     visit root_path

@@ -9,7 +9,7 @@ class Profile < ActiveRecord::Base
   validates_presence_of :postal_code
   has_attached_file :profile_pic,
     styles: { small: "100x100" },
-    default_url: "missing-image.jpeg"
+    default_url: "missing-image.jpg"
   validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
 
   def full_name

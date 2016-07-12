@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :profiles, except: [:show, :destroy]
   resources :contacts, only: [:new, :create]
 
-  devise_for :members
+  devise_for :members, controllers: { registrations: "registrations" }
   
-  get 'home/index'
+  get 'home/index' 
 
   root 'home#index'
   

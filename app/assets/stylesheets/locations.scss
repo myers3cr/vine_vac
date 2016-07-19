@@ -1,4 +1,4 @@
-// Place all the styles related to the ProfilesController controller here.
+// Place all the styles related to the Locations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -6,23 +6,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.profileform {
+.locationform {
   padding-top: 30px;
   max-width: 640px;
   margin: 0 auto;
 }
-.profileform form {
+.locationform form {
   @extend .well;
   @extend .well-lg;
   padding-bottom: 40px;
 }
-.profileform .right {
+.locationform .right {
   float: right !important;
 }
-.profileform .button {
+.locationform .button {
   @extend .btn;
   @extend .btn-primary;
 }
-.profileform fieldset {
+.locationform fieldset {
   @extend .well;
 }

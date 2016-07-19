@@ -1,9 +1,9 @@
-<%= form_for @profile, html: { multipart: true, role: "form" } do |f| %>
-  <% if @profile.errors.any? %>
+<%= form_for @location, html: { role: "form" } do |f| %>
+  <% if @location.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited your profile from being saved:</h2>
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited your location from being saved:</h2>
       <ul>
-      <% @profile.errors.full_messages.each do |msg| %>
+      <% @location.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -11,12 +11,12 @@
   <% end %>
 
     <div class="form-group">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, class: 'form-control-sm',size: 50, autofocus: "autofocus" %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control-sm',size: 50, autofocus: "autofocus" %>
     </div>
     <div class="form-group">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, class: 'form-control-sm', size: 50 %>
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control-sm', size: 50 %>
     </div>
     <div class="form-group">
       <%= f.label :address_1 %>
@@ -38,16 +38,7 @@
       <%= f.label :postal_code %>
       <%= f.text_field :postal_code, class: 'form-control-sm', size: 10 %>
     </div>  
-    <div class="form-group">
-      <%= f.label :profile_pic, "Profile Image" %>
-      <div class="text-left">
-        <%= image_tag @profile.profile_pic.url(:small), id: "profile-pic" %>
-      </div>
-      <%= f.file_field :profile_pic %>
-    </div>
     <div class="actions">
-      <%= f.submit "Save", class: "btn btn-primary" %>&nbsp;<%= link_to 'Cancel', root_path %>
+      <%= f.submit "Save", class: "btn btn-primary" %>&nbsp;<%= link_to 'Cancel', locations_path %>
     </div>
 <% end %>
-
-

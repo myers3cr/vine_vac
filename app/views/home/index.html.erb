@@ -7,8 +7,10 @@
     page_path('about'), 
     class: 'btn btn-default', 
     type: "button" %>
-  <%= link_to "I've seen enough. Sign me up!",
-    new_member_registration_path, 
-    class: 'btn btn-primary', 
-    type: "button" %>
+  <% if !member_signed_in? %>
+    <%= link_to "I've seen enough. Sign me up!",
+      new_member_registration_path, 
+      class: 'btn btn-primary', 
+      type: "button" %>
+  <% end %>
 </div>

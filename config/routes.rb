@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   resources :profiles, except: [:show, :destroy]
   resources :contacts, only: [:new, :create]
+  resources :locations
 
   devise_for :members, controllers: { registrations: "registrations" }
   

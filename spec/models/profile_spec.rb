@@ -49,7 +49,7 @@ describe Profile, type: :model do
   end
 
   it "returns the member's city, state and zip as a single string" do
-    expect(profile.csz).to eq (profile.city + "," + profile.state + " " + profile.postal_code)
+    expect(profile.csz).to eq (profile.city + ", " + profile.state + " " + profile.postal_code)
   end
 
 end

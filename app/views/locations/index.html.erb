@@ -1,0 +1,33 @@
+<h3>My Locations</h3>
+
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>City</th>
+    <th></th>
+  </tr>
+
+  <% @locations.each do |loc| %>
+  <tr>
+    <td><%= loc.name %></td>
+    <td><%= loc.description %></td>
+    <td><%= loc.csz %></td>
+    <td>
+      <%= link_to edit_location_path(loc), class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="sr-only">Edit</span>
+      <% end %>
+      <%= link_to location_path(loc), class: "btn btn-default btn-sm",
+                  data: { confirm: 'Are you sure?', method: :delete } do %>
+        <span class="glyphicon glyphicon-trash"></span>
+        <span class="sr-only">Delete</span>
+      <% end %>
+    </td>
+ </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= button_to "New Location", new_location_path, method: :get %>

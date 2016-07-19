@@ -17,7 +17,7 @@ class Profile < ActiveRecord::Base
   end
 
   def csz
-    [[city, state].join(','), postal_code].join(' ')
+    [[city, state].join(', '), postal_code].join(' ')
   end
 
 end

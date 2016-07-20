@@ -18,37 +18,37 @@ feature "Host must be able to add a location" do
   end
 
   scenario "host creates a location" do
-    before_count = Location.count
-    click_button "New Location"
-    fill_in_location_fields
-    click_button "Save"
+    expect {
+      save_new_location
+    }.to change(Location, :count).by(1)
     expect(page).to have_content("Location added")
     expect(page).to have_content(location.name)
-    expect(Location.count).to eq before_count + 1
   end
 
   scenario "host edits a location" do
-    click_button "New Location"
-    fill_in_location_fields
-    click_button "Save"
-    before_count = Location.count
-    page.find('tr', text: location.name).click_link('Edit')
-    fill_in "location[name]", with: "A different name"
-    click_button "Save"
+    save_new_location
+    expect {
+      page.find('tr', text: location.name).click_link('Edit')
+      fill_in "location[name]", with: "A different name"
+      click_button "Save"
+    }.to change(Location, :count).by(0)
     expect(page).to have_content('Location updated')
     expect(page).to have_content("A different name")
-    expect(Location.count).to eq before_count
   end
 
   scenario "host deletes a location" do
+    save_new_location
+    expect {
+      page.find('tr', text: location.name).click_link('Delete')
+    }.to change(Location, :count).by(-1)
+    expect(page).to have_content('Location deleted')
+    expect(page).to_not have_content(location.name)
+  end
+
+  def save_new_location
     click_button "New Location"
     fill_in_location_fields
     click_button "Save"
-    before_count = Location.count
-    page.find('tr', text: location.name).click_link('Delete')
-    expect(page).to have_content('Location deleted')
-    expect(page).to_not have_content(location.name)
-    expect(Location.count).to eq before_count - 1 
   end
 
   def fill_in_location_fields

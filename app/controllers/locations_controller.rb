@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   before_action :authenticate_member!
 
   def index
-    @locations = Location.all
+    @locations = Location.where("member_id = ?", current_member)
   end
 
   def new
@@ -44,7 +44,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:member_id, :name, :description, :address_1, :address_2,
+    params.require(:location).permit(:member_id, :loc_type, :name, :description, :address_1, :address_2,
       :city, :state, :postal_code)
   end
 

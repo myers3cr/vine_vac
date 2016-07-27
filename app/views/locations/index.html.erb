@@ -3,6 +3,7 @@
 <table class="table table-hover">
   <tr>
     <th>Name</th>
+    <th>Type</th>
     <th>Description</th>
     <th>City</th>
     <th></th>
@@ -11,6 +12,7 @@
   <% @locations.each do |loc| %>
   <tr>
     <td><%= loc.name %></td>
+    <td><%= loc.loc_type %></td>
     <td><%= loc.description %></td>
     <td><%= loc.csz %></td>
     <td>

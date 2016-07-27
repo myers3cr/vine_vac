@@ -41,7 +41,16 @@ describe Location, type: :model do
   it "is invalid without a postal_code" do
     location.postal_code = nil
     expect(location).to be_invalid
-    expect(location.errors[:postal_code]).to include("can't be blank")
+    expect(location.errors[:postal_code]).to include("is invalid")
+  end
+
+  it "is invalid with a bad postal_code" do
+    location.postal_code = "1234"
+    expect(location).to be_invalid
+    expect(location.errors[:postal_code]).to include("is invalid")
+    location.postal_code = "12345-"
+    expect(location).to be_invalid
+    expect(location.errors[:postal_code]).to include("is invalid")
   end
 
   it "returns the location's city, state and zip as a single string" do

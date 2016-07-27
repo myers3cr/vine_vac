@@ -1,44 +1,25 @@
-<%= form_for @location, html: { role: "form" } do |f| %>
-  <% if @location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@location.errors.count, "error") %> prohibited your location from being saved:</h2>
-      <ul>
-      <% @location.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control-sm',size: 50, autofocus: "autofocus" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_field :description, class: 'form-control-sm', size: 50 %>
-    </div>
-    <div class="form-group">
-      <%= f.label :address_1 %>
-      <%= f.text_field :address_1, class: 'form-control-sm', size: 50 %>
-    </div>
-    <div class="form-group">
-      <%= f.label :address_2 %>
-      <%= f.text_field :address_2, class: 'form-control-sm', size: 50 %>
-    </div>
-    <div class="form-group">
-      <%= f.label :city %>
-      <%= f.text_field :city, class: 'form-control-sm' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :state %>
-      <%= f.text_field :state, class: 'form-control-sm', size: 5 %>
-    </div>
-    <div class="form-group">
-      <%= f.label :postal_code %>
-      <%= f.text_field :postal_code, class: 'form-control-sm', size: 10 %>
-    </div>  
-    <div class="actions">
-      <%= f.submit "Save", class: "btn btn-primary" %>&nbsp;<%= link_to 'Cancel', locations_path %>
-    </div>
+<%= simple_form_for @location, defaults: { input_html: { class: 'form-control input_sm' } } do |f| %>
+  <%= f.input :loc_type,
+        required: true,
+        label: 'Accomodation type',
+        collection: Location::LOC_TYPES,
+        default: Location::LOC_TYPES[1] %>
+  <%= f.input :name, 
+        placeholder: 'Yellow bedroom' %>
+  <%= f.input :description, 
+        placeholder: 'One twin bed' %>
+  <%= f.input :address_1, 
+        label: "Street Address", 
+        placeholder: '123 Sesame Street' %>
+  <%= f.input :address_2, 
+        label: 'Secondary Address (optional)',
+        placeholder: 'Suite 17' %>
+  <%= f.input :city,
+        placeholder: 'Anytowm' %>
+  <%= f.input :state,
+        placeholder: 'NY' %>
+  <%= f.input :postal_code,
+        label: "Zip",
+        placeholder: '12345' %>
+  <%= f.submit "Save", class: "btn btn-primary" %>&nbsp;<%= link_to 'Cancel', locations_path %>
 <% end %>

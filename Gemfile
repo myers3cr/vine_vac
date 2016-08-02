@@ -41,8 +41,10 @@ gem 'figaro'
 gem 'high_voltage', '~> 3.0.0'
 # Handle the contact email form
 gem 'mail_form'
-# Deploy to Heroky
+# Deploy to Heroku
 gem 'rails_12factor', group: :production
+# Allow multiple file uploads with paperclip
+gem 'dropzonejs-rails', '~> 0.4.16'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

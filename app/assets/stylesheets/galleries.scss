@@ -1,0 +1,28 @@
+// Place all the styles related to the Locations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// import the CSS framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.galleryform {
+  padding-top: 30px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.galleryform form {
+  @extend .well;
+  @extend .well-lg;
+  padding-bottom: 20px;
+}
+.galleryform .right {
+  float: right !important;
+}
+.galleryform .button {
+  @extend .btn;
+  @extend .btn-primary;
+}
+.galleryform fieldset {
+  @extend .well;
+}

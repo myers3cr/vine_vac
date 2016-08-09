@@ -59,13 +59,16 @@ class LocationsController < ApplicationController
 
   def set_picture
     if(@location)
+      @picture_urls = []
       if @location.pictures.count > 0
-        @picture_url = @location.pictures.first.image.url(:medium)
+        @location.pictures.each do |p|
+          @picture_urls << p.image.url(:medium)
+        end
       else
-        @picture_url = "missing-location.png"
+        @picture_urls = [ "missing-location.png" ]
       end
     else
-      @picture_url = "missing-location.png"
+      @picture_urls = [ "missing-location.png" ]
     end
   end
 

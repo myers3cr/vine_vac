@@ -1,4 +1,4 @@
-<%= simple_form_for @location, defaults: { input_html: { class: 'form-control input_sm' } } do |f| %>
+<div class="well">
   <%= f.input :loc_type,
         required: true,
         label: 'Accomodation type',
@@ -15,11 +15,13 @@
         label: 'Secondary Address (optional)',
         placeholder: 'Suite 17' %>
   <%= f.input :city,
-        placeholder: 'Anytowm' %>
+        placeholder: 'Anytown' %>
   <%= f.input :state,
         placeholder: 'NY' %>
   <%= f.input :postal_code,
         label: "Zip",
         placeholder: '12345' %>
-  <%= f.submit "Save", class: "btn btn-primary" %>&nbsp;<%= link_to 'Cancel', locations_path %>
-<% end %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+  &nbsp;&nbsp;
+  <%= link_to 'Back to list', locations_path %>
+</div>

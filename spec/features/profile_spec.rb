@@ -9,7 +9,7 @@ feature 'Member must have a profile' do
     visit root_path
     sign_in
     click_link "Profile"
-    expect(page.find('#profile-pic')['src']).to have_content 'missing-image'
+    expect(page.find('#profile-pic')['src']).to have_content 'missing-profile'
     fill_in_profile_fields
     click_button "Save"
     expect(page).to have_content("Profile updated successfully.")

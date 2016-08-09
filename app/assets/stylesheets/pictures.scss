@@ -1,4 +1,4 @@
-// Place all the styles related to the Locations controller here.
+// Place all the styles related to the pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -6,23 +6,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.galleryform {
+.pictureform {
   padding-top: 30px;
   max-width: 640px;
   margin: 0 auto;
 }
-.galleryform form {
+.pictureform form {
   @extend .well;
   @extend .well-lg;
   padding-bottom: 20px;
 }
-.galleryform .right {
+.pictureform .right {
   float: right !important;
 }
-.galleryform .button {
+.pictureform .button {
   @extend .btn;
   @extend .btn-primary;
 }
-.galleryform fieldset {
+.pictureform fieldset {
   @extend .well;
 }

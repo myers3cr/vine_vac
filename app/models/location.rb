@@ -1,7 +1,7 @@
 class Location < ActiveRecord::Base
   
   belongs_to :member
-  has_one :gallery
+  has_many :pictures, dependent: :destroy
 
   LOC_TYPES = %w(Room Apartment House)
 

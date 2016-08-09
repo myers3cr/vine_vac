@@ -1,0 +1,27 @@
+<div class="well">
+  <% @pictures.each do |pic| %>
+    <%= link_to edit_location_picture_path(@location, pic), class: "thumbnail" do %>
+      <img src="<%= pic.image.url(:medium) %>">
+      <div class="caption text-center">
+        <p><%= pic.caption %></p>
+      </div>
+    <% end %>
+  <% end %>
+  <%= form_for @location, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.text_field :name, hidden: true, :class => 'text_field' %>
+      </div>
+    </div>
+     <div class="control-group">
+      <%= f.label "Add Photos", :class => 'control-label' %>
+      <div class="controls">
+        <%= file_field_tag "images[]", type: :file, multiple: true %>
+      </div>
+    </div>
+    <br />
+     <div class="form-actions">
+      <%= f.submit "Done", :class => 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

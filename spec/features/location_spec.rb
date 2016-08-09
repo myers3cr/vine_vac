@@ -45,11 +45,11 @@ feature "Host must be able to add a location" do
     expect(page).to_not have_content(location.name)
   end
 
-  scenario "host navigates to gallery page" do
+  scenario "host navigates to photos page" do
     save_new_location
     page.find('tr', text: location.name).click_link('Edit')
-    click_link "Update Gallery"
-    expect(page).to have_content(location.name + " gallery")
+    click_link "Update Photos"
+    expect(page).to have_content(location.name + " pictures")
   end
 
   def save_new_location

@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
 
+  before_action :authenticate_member!
   before_action :set_location
   before_action :set_picture, only: [:edit, :update]
 

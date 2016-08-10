@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :picture do
     location_id nil
-    caption "MyString"
+    caption { Faker::Hipster.words(3).join(' ') }
     image ""
   end
 end

@@ -1,11 +1,15 @@
 <div class="well">
   <% @pictures.each do |pic| %>
-    <%= link_to edit_location_picture_path(@location, pic), class: "thumbnail" do %>
+    <div class="well">
       <img src="<%= pic.image.url(:medium) %>">
       <div class="caption text-center">
-        <p><%= pic.caption %></p>
+        <%= pic.caption %>
+        <br />
+        <%= link_to "Edit", edit_location_picture_path(@location, pic) %>
+        <%= link_to "Delete", location_picture_path(@location, pic), 
+          data: { confirm: 'Are you sure?', method: :delete } %>
       </div>
-    <% end %>
+    </div>
   <% end %>
   <%= form_for @location, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
     <div class="control-group">

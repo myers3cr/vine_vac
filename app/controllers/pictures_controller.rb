@@ -2,22 +2,26 @@ class PicturesController < ApplicationController
 
   before_action :authenticate_member!
   before_action :set_location
-  before_action :set_picture, only: [:edit, :update]
+  before_action :set_picture, only: [:edit, :update, :destroy]
 
   def index
-    @pictures = @location.pictures
+    @pictures = @location.pictures.order(:id)
   end
 
   def edit
   end
 
   def update
-    # binding.pry
     if @picture.update(picture_params)
       redirect_to location_pictures_path(@location), notice: 'Picture updated.'
     else
       render :edit
     end
+  end
+
+  def destroy
+    @picture.destroy
+    redirect_to location_pictures_path(@location), notice: 'Picture deleted.'
   end
 
 private

@@ -49,7 +49,7 @@ feature "Host must be able to add a location" do
     save_new_location
     page.find('tr', text: location.name).click_link('Edit')
     click_link "Update Photos"
-    expect(page).to have_content(location.name + " pictures")
+    expect(page).to have_content(location.name + " photos")
   end
 
   def save_new_location

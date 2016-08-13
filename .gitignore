@@ -21,3 +21,4 @@
 
 # Ignore /public/system files from imagemagick
 /public/system/*
+/public/images/*

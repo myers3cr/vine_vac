@@ -45,6 +45,8 @@ gem 'mail_form'
 gem 'rails_12factor', group: :production
 # Allow multiple file uploads with paperclip
 gem 'dropzonejs-rails', '~> 0.4.16'
+# Geocoding for Google Maps
+gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

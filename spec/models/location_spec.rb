@@ -26,6 +26,11 @@ describe Location, type: :model do
     expect(location.errors[:address_1]).to include("can't be blank")
   end
   
+  it "is valid without an address_2" do
+    location.address_2 = nil
+    expect(location).to be_valid
+  end
+
   it "is invalid without a city" do
     location.city = nil
     expect(location).to be_invalid
@@ -55,6 +60,18 @@ describe Location, type: :model do
 
   it "returns the location's city, state and zip as a single string" do
     expect(location.csz).to eq (location.city + ", " + location.state + " " + location.postal_code)
+  end
+
+  it "returns the full street address as a single string for geolocation" do
+    expect(location.full_street_address).to eq(location.address_1 + ", " + location.city + ", " + location.state + ", " + "US")
+  end
+
+  it "adds latitude and longitude when saved" do
+    expect(location.latitude).to be_blank
+    expect(location.longitude).to be_blank
+    location.save
+    expect(location.latitude).to_not be_blank
+    expect(location.longitude).to_not be_blank
   end
 
 end

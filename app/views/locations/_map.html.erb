@@ -1,0 +1,23 @@
+<div id="map-container" class="well">
+  <div id="map-canvas">
+    <p>The Map goes here</p>
+  </div>
+</div>
+<script>
+function initMap() {
+  var myLatLng = { lat: <%= @location.latitude %> , lng: <%= @location.longitude %> };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+    zoom: 17,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: "<%= @location.address_1 %>"
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMG-3YYHR6Z_yrJhJxE7DRgRwZxDHNafI&callback=initMap"
+    async defer></script>

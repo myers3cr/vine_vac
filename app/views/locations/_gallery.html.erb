@@ -3,10 +3,6 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      
-
-
-
       <% @picture_urls.each_with_index do |pic, ind| %>
       <% if ind == 0 then @active = "active" else @active = "" end %>
         <div class="item <%= @active %>">

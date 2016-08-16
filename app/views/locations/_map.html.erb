@@ -9,7 +9,17 @@ function initMap() {
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), {
     zoom: 17,
-    center: myLatLng
+    center: myLatLng,
+    styles: [
+              {
+                featureType:  'landscape.man_made',
+                "stylers": [
+                  { "invert_lightness": true },
+                  { "lightness": 36 },
+                  { "gamma": 1.28 }
+                ]
+              }
+            ]
   });
 
   var marker = new google.maps.Marker({
@@ -19,5 +29,5 @@ function initMap() {
   });
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMG-3YYHR6Z_yrJhJxE7DRgRwZxDHNafI&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap"
     async defer></script>

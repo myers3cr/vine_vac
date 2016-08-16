@@ -52,6 +52,12 @@ feature "Host must be able to add a location" do
     expect(page).to have_content(location.name + " photos")
   end
 
+  scenario "host views google map" do
+    save_new_location
+    page.find('tr', text: location.name).click_link('Edit')
+    expect(page).to have_content("Google Map")
+  end
+
   def save_new_location
     click_button "New Location"
     fill_in_location_fields

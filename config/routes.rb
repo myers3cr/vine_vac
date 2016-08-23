@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :reservations
   resources :contacts, only: [:new, :create]
   resources :profiles, except: [:show, :destroy]
   resources :locations do

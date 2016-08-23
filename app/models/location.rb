@@ -2,6 +2,7 @@ class Location < ActiveRecord::Base
   
   belongs_to :member
   has_many :pictures, dependent: :destroy
+  has_many :reservations
 
   geocoded_by :full_street_address
   after_validation :geocode, if: -> (obj) { obj.address_1.present? and obj.address_changed? }
@@ -24,6 +25,10 @@ class Location < ActiveRecord::Base
 
   def full_street_address
     [address_1, city, state, "US"].compact.join(', ')
+  end
+
+  def name_and_area
+    name + ' ' + csz
   end
 
   def csz

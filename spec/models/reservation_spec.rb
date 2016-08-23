@@ -9,7 +9,7 @@ describe Reservation, type: :model do
   end
 
   it "is invalid without a start_date" do
-    location.start_date = nil
+    reservation.start_date = nil
     expect(reservation).to be_invalid
     expect(reservation.errors[:start_date]).to include("can't be blank")
   end

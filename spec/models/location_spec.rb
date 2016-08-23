@@ -62,6 +62,10 @@ describe Location, type: :model do
     expect(location.csz).to eq (location.city + ", " + location.state + " " + location.postal_code)
   end
 
+  it "returns the location's name, city, state and zip as a single string" do
+    expect(location.name_and_area).to eq (location.name + ' ' + location.csz)
+  end
+
   it "returns the full street address as a single string for geolocation" do
     expect(location.full_street_address).to eq(location.address_1 + ", " + location.city + ", " + location.state + ", " + "US")
   end
@@ -70,6 +74,7 @@ describe Location, type: :model do
     expect(location.latitude).to be_blank
     expect(location.longitude).to be_blank
     location.save
+    location.reload
     expect(location.latitude).to_not be_blank
     expect(location.longitude).to_not be_blank
   end

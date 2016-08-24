@@ -32,4 +32,16 @@ describe Reservation, type: :model do
     expect(reservation.errors[:end_date]).to include("can't be blank")
   end
 
+  it "is invalid with start date before today" do
+    reservation.start_date = DateTime.now - 1
+    expect(reservation).to be_invalid
+    expect(reservation.errors[:start_date]).to include("must be today or after")
+  end
+
+  it "is invalid with end date before start date" do
+    reservation.end_date = reservation.start_date - 1.days
+    expect(reservation).to be_invalid
+    expect(reservation.errors[:end_date]).to include("must be after start date")
+  end
+
 end

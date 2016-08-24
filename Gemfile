@@ -47,6 +47,8 @@ gem 'rails_12factor', group: :production
 gem 'dropzonejs-rails', '~> 0.4.16'
 # Geocoding for Google Maps
 gem 'geocoder'
+# Datepicker
+gem 'bootstrap-datepicker-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

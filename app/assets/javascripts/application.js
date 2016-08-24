@@ -14,4 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require_tree .
+
+$(function() {
+    $('input.datepicker').data({behaviour: "datepicker"}).datepicker({
+      orientation: "bottom right",
+      autoclose: true,
+      todayHighlight: true,
+      format: "yyyy-mm-dd"
+    });
+});

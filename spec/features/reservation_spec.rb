@@ -51,8 +51,8 @@ feature "Member must be able to add a reservation" do
     save_new_reservation(location1)
     expect {
       page.find('tr', text: location1.name).click_link('Edit')
-      select_date reservation.start_date + 1.week, from: "reservation_start_date"
-      select_date reservation.end_date + 1.week, from: "reservation_end_date"
+      fill_in "reservation[start_date]", with: reservation.start_date + 1.week
+      fill_in "reservation[end_date]", with: reservation.end_date + 1.week
       click_button "Save"
     }.to change(Reservation, :count).by(0)
     expect(page).to have_content('Reservation updated')
@@ -81,8 +81,8 @@ feature "Member must be able to add a reservation" do
 
   def fill_in_reservation_fields(loc)
     select loc.name, from: "Location"
-    select_date reservation.start_date, from: "reservation_start_date"
-    select_date reservation.end_date, from: "reservation_end_date"
+    fill_in "reservation[start_date]", with: reservation.start_date
+    fill_in "reservation[end_date]", with: reservation.end_date
   end
 
   def select_by_id(id, options = {})

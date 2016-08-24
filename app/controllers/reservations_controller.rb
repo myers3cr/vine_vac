@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_member!
+  before_action :set_action, only: [:new, :edit]
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   # GET /reservations
@@ -72,6 +73,10 @@ class ReservationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
       params.require(:reservation).permit(:start_date, :end_date, :location_id, :member_id)
+    end
+
+    def set_action
+      @action = params[:action].capitalize
     end
 
     def set_member

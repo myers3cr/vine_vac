@@ -1,4 +1,6 @@
-<h1>New Reservation</h1>
-
-<%= render 'form' %>
-
+<%= simple_form_for @reservation, defaults: { input_html: { class: 'form-control input_sm' } } do |f| %>
+  <div class="locationform col-xs-offset-2 col-xs-6">
+    <h3 class="text-center"><%= @action %> Reservation</h3>
+    <%= render 'form', f: f %>
+  </div>
+<% end %>

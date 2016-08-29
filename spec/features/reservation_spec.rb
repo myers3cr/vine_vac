@@ -1,18 +1,24 @@
 require 'rails_helper'
 
 feature "Member must be able to add a reservation" do 
-  let!(:member) { FactoryGirl.create(:member) }
-  let!(:location1) { FactoryGirl.create(:location) }
-  let!(:location2) { FactoryGirl.create(:location) }
-  let(:reservation) { FactoryGirl.build(:reservation) }
+  let!(:me) { FactoryGirl.create(:member) }
+  let!(:other_member) { FactoryGirl.create(:member) }
+  let(:location1) { FactoryGirl.create(:location, member: other_member) }
+  let(:location2) { FactoryGirl.create(:location, member: other_member) }
+  let(:reservation) { FactoryGirl.build(:reservation, member: me) }
 
   before do
     visit root_path
     click_link "Sign in"
-    sign_in(member)
+    sign_in(me)
   end
 
   before :each do
+    # visit root_path
+    # click_link "Sign in"
+    # sign_in(me)
+    location1.save
+    location2.save
     click_link "Reservations"
   end
   

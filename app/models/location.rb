@@ -16,8 +16,9 @@ class Location < ActiveRecord::Base
   validates :address_1, presence: true
   validates :city, presence: true
   validates :state, presence: true
-  validates :postal_code,
-    format: { with: /\A\d{5}(?:-\d{4})?\z/ }
+  validates :postal_code, format: { with: /\A\d{5}(?:-\d{4})?\z/ }
+  
+  scope :not_mine, ->(user) { where("member_id != ?", user) }
 
   def address_changed?
     address_1_changed? || city_changed? || state_changed?

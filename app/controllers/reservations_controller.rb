@@ -1,12 +1,13 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_member!
   before_action :set_action, only: [:new, :edit]
+  before_action :set_member, only: [:new, :edit]
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = current_member.reservations
   end
 
   # GET /reservations/1

@@ -7,16 +7,10 @@ feature "Member must be able to add a reservation" do
   let(:location2) { FactoryGirl.create(:location, member: other_member) }
   let(:reservation) { FactoryGirl.build(:reservation, member: me) }
 
-  before do
+  before :each do
     visit root_path
     click_link "Sign in"
     sign_in(me)
-  end
-
-  before :each do
-    # visit root_path
-    # click_link "Sign in"
-    # sign_in(me)
     location1.save
     location2.save
     click_link "Reservations"

@@ -1,4 +1,4 @@
-// Place all the styles related to the pictures controller here.
+// Place all the styles related to the Reservations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -6,27 +6,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.pictureform {
+.calendar {
   padding-top: 30px;
   max-width: 640px;
   margin: 0 auto;
 }
-.pictureform form {
+.calendar form {
   @extend .well;
   @extend .well-lg;
   padding-bottom: 20px;
 }
-.pictureform .right {
+.calendar .right {
   float: right !important;
 }
-.pictureform .button {
+.calendar .button {
   @extend .btn;
   @extend .btn-primary;
 }
-.pictureform fieldset {
+.calendar fieldset {
   @extend .well;
 }
 
-.pictureform a:visited {
+.calendar a:visited {
   color: white;
 }

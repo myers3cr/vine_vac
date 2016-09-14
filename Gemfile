@@ -49,6 +49,8 @@ gem 'dropzonejs-rails', '~> 0.4.16'
 gem 'geocoder'
 # Datepicker
 gem 'bootstrap-datepicker-rails'
+# handle money
+gem 'money-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

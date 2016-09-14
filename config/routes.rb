@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :profiles, except: [:show, :destroy]
   resources :locations do
     resources :pictures
+    resources :available_dates
   end
+
+  post 'locations/:location_id/available_dates/new' => 'available_dates#add'
+  post 'locations/:location_id/available_dates/edit' => 'available_dates#update'
 
   devise_for :members, controllers: { registrations: "registrations" }
   

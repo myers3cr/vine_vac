@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819185309) do
+ActiveRecord::Schema.define(version: 20160902203021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "available_dates", force: :cascade do |t|
+    t.integer  "location_id"
+    t.integer  "member_id"
+    t.date     "available_date"
+    t.integer  "status"
+    t.integer  "price_cents",    default: 0,     null: false
+    t.string   "price_currency", default: "USD", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "available_dates", ["location_id"], name: "index_available_dates_on_location_id", using: :btree
+  add_index "available_dates", ["member_id"], name: "index_available_dates_on_member_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.integer  "member_id"
@@ -97,6 +111,8 @@ ActiveRecord::Schema.define(version: 20160819185309) do
   add_index "reservations", ["location_id"], name: "index_reservations_on_location_id", using: :btree
   add_index "reservations", ["member_id"], name: "index_reservations_on_member_id", using: :btree
 
+  add_foreign_key "available_dates", "locations"
+  add_foreign_key "available_dates", "members"
   add_foreign_key "locations", "members"
   add_foreign_key "pictures", "locations"
   add_foreign_key "profiles", "members"

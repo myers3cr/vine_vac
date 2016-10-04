@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Reservation, type: :model do
 
-  let(:reservation) { FactoryGirl.build(:reservation) }
+  let(:reservation) { FactoryGirl.build(:available_reservation) }
 
   it "has a valid factory" do
     expect(reservation).to be_valid

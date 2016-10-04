@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Host must be able manage available dates" do 
+feature "Host must be able to manage available dates" do 
   let!(:host) { FactoryGirl.create(:member) }
   let!(:location) { FactoryGirl.create(:location, member: host) }
   let(:available) { FactoryGirl.build(:available_date) }

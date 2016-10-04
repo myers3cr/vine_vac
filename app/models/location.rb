@@ -21,6 +21,10 @@ class Location < ActiveRecord::Base
   
   scope :not_mine, ->(user) { where("member_id != ?", user) }
 
+  def available?(date)
+    !self.available_dates.where(available_date: date).empty?
+  end
+
   def address_changed?
     address_1_changed? || city_changed? || state_changed?
   end

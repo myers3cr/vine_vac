@@ -12,4 +12,8 @@ class AvailableDate < ActiveRecord::Base
     update(status: :held, member: member)
   end
 
+  def reserve_for_member(member)
+    update(status: :reserved, member: member)
+  end
+
 end

@@ -40,3 +40,45 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
+
+Geocoder.configure(:lookup => :test)
+
+Geocoder::Lookup::Test.add_stub(
+  "1 Park Ave, New York, NY, US", [
+    {
+      'latitude' => 40.7143528,
+      'longitude' => -74.0059731,
+      'address' => 'New York, NY, USA',
+      'state' => 'New York',
+      'state_code' => 'NY',
+      'country' => 'United States',
+      'country_code' => 'US'
+    }
+  ]
+)
+Geocoder::Lookup::Test.add_stub(
+  "1 Park Ave, NY, US", [
+    {
+      'latitude' => 40.7143528,
+      'longitude' => -74.0059731,
+      'address' => 'New York, NY, USA',
+      'state' => 'New York',
+      'state_code' => 'NY',
+      'country' => 'United States',
+      'country_code' => 'US'
+    }
+  ]
+)
+Geocoder::Lookup::Test.add_stub(
+  "1 Park Ave, New York, US", [
+    {
+      'latitude' => 40.7143528,
+      'longitude' => -74.0059731,
+      'address' => 'New York, NY, USA',
+      'state' => 'New York',
+      'state_code' => 'NY',
+      'country' => 'United States',
+      'country_code' => 'US'
+    }
+  ]
+)

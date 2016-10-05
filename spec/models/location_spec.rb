@@ -71,10 +71,6 @@ describe Location, type: :model do
   end
 
   it "adds latitude and longitude when saved" do
-    location.address_1 = "3 Shadow Vale Dr"
-    location.city = "Penfield"
-    location.state = "NY"
-    location.postal_code = "14526"
     expect(location.latitude).to be_blank
     expect(location.longitude).to be_blank
     location.save

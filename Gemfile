@@ -51,6 +51,9 @@ gem 'geocoder'
 gem 'bootstrap-datepicker-rails'
 # handle money
 gem 'money-rails'
+# calendar for availability
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

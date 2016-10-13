@@ -6,27 +6,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.calendar {
+.dashboard-calendar {
   padding-top: 30px;
   max-width: 640px;
   margin: 0 auto;
 }
-.calendar form {
+.dashboard-calendar form {
   @extend .well;
   @extend .well-lg;
   padding-bottom: 20px;
 }
-.calendar .right {
+.dashboard-calendar .right {
   float: right !important;
 }
-.calendar .button {
+.dashboard-calendar .button {
   @extend .btn;
   @extend .btn-primary;
 }
-.calendar fieldset {
+.dashboard-calendar fieldset {
   @extend .well;
 }
 
-.calendar a:visited {
+.dashboard-calendar a:visited {
   color: white;
 }

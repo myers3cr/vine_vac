@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require moment
+//= require fullcalendar
 //= require_tree .
 
 $(function() {
@@ -24,4 +26,9 @@ $(function() {
       todayHighlight: true,
       format: "yyyy-mm-dd"
     });
+});
+$(document).ready(function() {
+  $('#calendar').fullCalendar({
+    // put your options and callbacks here
+  })
 });

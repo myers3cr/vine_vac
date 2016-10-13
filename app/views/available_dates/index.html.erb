@@ -1,3 +1,4 @@
+<div class="col-xs-8 col-xs-offset-2">
 <h3><%= @location.name %> availability</h3>
 
 <% if @available_dates.count > 0 %>
@@ -35,19 +36,22 @@
     <% end %>
     </tbody>
   </table>
-  <br />
-
+<br />
 <% else %>
 
   <p>This location is not currently available to the public.</p>
 
 <% end %>
 
-<div class="form-actions">
+<div id="calendar"></div>
+
+<div class="form-actions2">
+<br />
 <p>
   <%= link_to "New Availability", new_location_available_date_path,
         class: "btn btn-primary", method: :get %>
   &nbsp;&nbsp;
   <%= link_to 'Back to list', locations_path %>
 </p>
+</div>
 </div>

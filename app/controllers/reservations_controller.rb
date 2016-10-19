@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_member!
   before_action :set_action, only: [:new, :edit]
-  before_action :set_member, only: [:new, :edit]
+  before_action :set_member, only: [:new, :edit, :create]
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
   # GET /reservations

@@ -45,13 +45,22 @@
 
 <div id="calendar"></div>
 
-<div class="form-actions2">
-<br />
-<p>
-  <%= link_to "New Availability", new_location_available_date_path,
-        class: "btn btn-primary", method: :get %>
-  &nbsp;&nbsp;
-  <%= link_to 'Back to list', locations_path %>
-</p>
+  <div class="form-actions2">
+  <br />
+  <p>
+    <%= link_to "New Availability", new_location_available_date_path,
+          class: "btn btn-primary", method: :get %>
+    &nbsp;&nbsp;
+    <%= link_to 'Back to list', locations_path %>
+  </p>
+  </div>
 </div>
-</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('#calendar').fullCalendar({
+    // put your options and callbacks here
+    events: '<%=location_available_dates_path%>.json',
+    eventBackgroundColor: "green"
+  })
+});
+</script>

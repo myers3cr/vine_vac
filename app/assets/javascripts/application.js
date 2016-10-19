@@ -27,8 +27,3 @@ $(function() {
       format: "yyyy-mm-dd"
     });
 });
-$(document).ready(function() {
-  $('#calendar').fullCalendar({
-    // put your options and callbacks here
-  })
-});

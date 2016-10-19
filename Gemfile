@@ -29,7 +29,8 @@ gem 'devise'
 # Use pundit for authorization
 gem 'pundit'
 # Use Bootstrap for the UI
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'autoprefixer-rails'
 # Use simple_form for creating forms
 gem 'simple_form'
 # Use paperclip and S3 for profile picture attachments

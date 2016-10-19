@@ -8,6 +8,10 @@ class AvailableDatesController < ApplicationController
 
   def index
     @available_dates = @location.available_dates.order(:available_date)
+    respond_to do |format|
+        format.html
+        format.json
+    end
   end
 
   def new

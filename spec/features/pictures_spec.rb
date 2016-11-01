@@ -38,6 +38,7 @@ feature "Host must be able to add a photo to a location" do
   end
 
   def fill_in_location_fields
+    select location.loc_type, from: "location[loc_type]"
     fill_in "location[name]", with: location.name
     fill_in "location[description]", with: location.description
     fill_in "location[address_1]", with: location.address_1

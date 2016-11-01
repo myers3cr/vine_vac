@@ -45,5 +45,7 @@ module VineVac
         request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+    # fix broken bootstrap glyphicons
+    config.assets.paths << "#{Rails}/app/assets/fonts"
   end
 end

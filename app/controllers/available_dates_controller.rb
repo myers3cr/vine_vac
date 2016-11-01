@@ -8,6 +8,7 @@ class AvailableDatesController < ApplicationController
 
   def index
     @available_dates = @location.available_dates.order(:available_date)
+    @future_dates = @location.available_dates.where("available_date >= ?", Date.today)
     respond_to do |format|
         format.html
         format.json

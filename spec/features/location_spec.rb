@@ -72,6 +72,7 @@ feature "Host must be able to add a location" do
   end
 
   def fill_in_location_fields
+    select location.loc_type, from: "location[loc_type]"
     fill_in "location[name]", with: location.name
     fill_in "location[description]", with: location.description
     fill_in "location[address_1]", with: location.address_1
@@ -79,6 +80,7 @@ feature "Host must be able to add a location" do
     fill_in "location[city]", with: location.city
     fill_in "location[state]", with: location.state
     fill_in "location[postal_code]", with: location.postal_code
+
   end
 
   def sign_in(who)

@@ -8,6 +8,12 @@ describe Location, type: :model do
     expect(location).to be_valid
   end
 
+  it "is invalid without a loc_type" do
+    location.loc_type = nil
+    expect(location).to be_invalid
+    expect(location.errors[:loc_type]).to include("is not an appropriate type")
+  end
+    
   it "is invalid without a name" do
     location.name = nil
     expect(location).to be_invalid

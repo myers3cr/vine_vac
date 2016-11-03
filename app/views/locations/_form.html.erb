@@ -1,11 +1,11 @@
 <div class="well">
+  <%= f.input :name, 
+        placeholder: 'Yellow bedroom' %>
   <%= f.input :loc_type,
         required: true,
         label: 'Accomodation type',
         collection: Location::LOC_TYPES,
         default: Location::LOC_TYPES[1] %>
-  <%= f.input :name, 
-        placeholder: 'Yellow bedroom' %>
   <%= f.input :description, 
         placeholder: 'One twin bed' %>
   <%= f.input :address_1, 

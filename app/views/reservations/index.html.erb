@@ -1,4 +1,8 @@
+<div class="col-xs-8 col-xs-offset-2">
+
 <h3>My Reservations</h3>
+
+<div id="calendar"></div>
 
 <% if @reservations.count > 0 %>
 
@@ -41,3 +45,14 @@
 
 <br>
 <%= button_to 'New Reservation', new_reservation_path, class: "btn btn-primary", method: :get  %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('#calendar').fullCalendar({
+    // put your options and callbacks here
+    events: '<%=reservations_path%>.json',
+    eventBackgroundColor: "green"
+  })
+});
+</script>

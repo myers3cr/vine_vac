@@ -8,6 +8,13 @@
 <script type="text/javascript">
   $(document).ready(function() {
   $('#calendar').fullCalendar({
+    header: {
+      left: "",
+      center: "title",
+      right: "",
+    },
+    height: "auto",
+    defaultView: "month",
     // put your options and callbacks here
     events: '<%=location_available_dates_path(@location)%>.json',
     eventBackgroundColor: "green"

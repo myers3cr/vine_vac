@@ -26,6 +26,15 @@ describe Location, type: :model do
     expect(location.errors[:description]).to include("can't be blank")
   end
   
+  it "is invalid without an appropriate occupancy" do
+    location.occupancy = nil
+    expect(location).to be_invalid
+    expect(location.errors[:occupancy]).to include("must be a whole number greater than zero")
+    location.occupancy = -1
+    expect(location).to be_invalid
+    expect(location.errors[:occupancy]).to include("must be a whole number greater than zero")
+  end
+  
   it "is invalid without an address_1" do
     location.address_1 = nil
     expect(location).to be_invalid

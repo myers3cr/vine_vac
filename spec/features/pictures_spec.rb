@@ -41,6 +41,7 @@ feature "Host must be able to add a photo to a location" do
     select location.loc_type, from: "location[loc_type]"
     fill_in "location[name]", with: location.name
     fill_in "location[description]", with: location.description
+    fill_in "location[occupancy]", with: rand(1..20)
     fill_in "location[address_1]", with: location.address_1
     fill_in "location[address_2]", with: location.address_2
     fill_in "location[city]", with: location.city

@@ -8,6 +8,8 @@
         default: Location::LOC_TYPES[1] %>
   <%= f.input :description, 
         placeholder: 'One twin bed' %>
+  <%= f.input :occupancy, as: :integer,
+        placeholder: '2' %>
   <%= f.input :address_1, 
         label: "Street Address", 
         placeholder: '123 Sesame Street' %>

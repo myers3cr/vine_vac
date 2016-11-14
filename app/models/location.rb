@@ -18,6 +18,9 @@ class Location < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
   validates :postal_code, format: { with: /\A\d{5}(?:-\d{4})?\z/ }
+  validates :occupancy, numericality: { only_integer: true, message: "must be a whole number greater than zero" }
+  validates :occupancy, numericality: { greater_than: 0, message: "must be a whole number greater than zero" }
+
   
   scope :not_mine, ->(user) { where("member_id != ?", user) }
 

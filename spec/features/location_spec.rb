@@ -30,6 +30,7 @@ feature "Host must be able to add a location" do
     expect {
       page.find('tr', text: location.name).click_link('Edit')
       fill_in "location[name]", with: "A different name"
+      fill_in "location[occupancy]", with: rand(1..20)
       click_button "Save"
     }.to change(Location, :count).by(0)
     expect(page).to have_content('Location updated')
@@ -75,6 +76,7 @@ feature "Host must be able to add a location" do
     select location.loc_type, from: "location[loc_type]"
     fill_in "location[name]", with: location.name
     fill_in "location[description]", with: location.description
+    fill_in "location[occupancy]", with: location.occupancy
     fill_in "location[address_1]", with: location.address_1
     fill_in "location[address_2]", with: location.address_2
     fill_in "location[city]", with: location.city

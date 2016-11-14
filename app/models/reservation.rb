@@ -5,7 +5,9 @@ class Reservation < ActiveRecord::Base
 
   validates :location_id, presence: true
   validates :member_id, presence: true
-
+  validates :occupancy, numericality: { only_integer: true, message: "must be a whole number greater than zero" }
+  validates :occupancy, numericality: { greater_than: 0, message: "must be a whole number greater than zero" }
+  
   validate :start_date_today_or_after
   validate :end_date_after_start_date
 

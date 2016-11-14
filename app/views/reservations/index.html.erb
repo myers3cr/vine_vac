@@ -1,4 +1,4 @@
-<div class="col-xs-8 col-xs-offset-2">
+<div class="col-xs-10 col-xs-offset-1">
 
 <h3>My Reservations</h3>
 
@@ -10,6 +10,7 @@
     <thead>
       <tr>
         <th>Location</th>
+        <th>Guests</th>
         <th>Check-in date</th>
         <th>Check-out date</th>
         <th colspan="3"></th>
@@ -19,6 +20,7 @@
       <% @reservations.each do |reservation| %>
         <tr>
           <td><%= reservation.location.name + " " + reservation.location.csz %></td>
+          <td><%= reservation.occupancy %></td>
           <td><%= reservation.start_date %></td>
           <td><%= reservation.end_date %></td>
           <td>

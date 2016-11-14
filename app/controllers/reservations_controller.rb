@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = current_member.reservations
+    @reservations = current_member.reservations.order(:start_date)
   end
 
   # GET /reservations/1
@@ -73,7 +73,7 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date, :location_id, :member_id)
+      params.require(:reservation).permit(:start_date, :end_date, :location_id, :member_id, :occupancy)
     end
 
     def set_action

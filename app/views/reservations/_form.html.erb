@@ -1,5 +1,7 @@
 <div class="form-inputs">
   <%= f.association :location, collection: Location.not_mine(@member) %>
+  <%= f.input :occupancy, label: "Number of guests",
+              as: :integer, placeholder: "1" %>
   <%= f.input :start_date, label: "Check-in date", 
               as: :string, input_html: { class: "datepicker" } %>
   <%= f.input :end_date, label: "Check-out date",

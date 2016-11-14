@@ -30,6 +30,7 @@ feature "Member must be able to add a reservation" do
     expect(page).to have_content("Reservation added")
     expect(page).to have_content("My Reservations")
     expect(page).to have_css("table > thead > tr", text: "Location")
+    expect(page).to have_css("table > thead > tr", text: "Guests")
     expect(page).to have_css("table > thead > tr", text: "Check-in date")
     expect(page).to have_css("table > thead > tr", text: "Check-out date")
     expect(page).to have_content(location1.name)
@@ -84,6 +85,7 @@ feature "Member must be able to add a reservation" do
   def save_new_reservation(loc, res)
     click_button "New Reservation"
     select loc.name, from: "Location"
+    fill_in "reservation[occupancy]", with: res.occupancy
     fill_in "reservation[start_date]", with: res.start_date
     fill_in "reservation[end_date]", with: res.end_date
     click_button "Save"

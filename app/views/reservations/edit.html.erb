@@ -4,3 +4,13 @@
     <%= render 'form', f: f %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('#calendar').fullCalendar({
+    // put your options and callbacks here
+    events: '<%=reservations_path%>.json',
+    eventBackgroundColor: "green"
+  })
+});
+</script>

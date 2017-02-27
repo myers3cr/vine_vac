@@ -19,7 +19,7 @@
     <tbody>
       <% @reservations.each do |reservation| %>
         <tr>
-          <td><%= reservation.location.name + " " + reservation.location.csz %></td>
+          <td><%= reservation.location.name + ", " + reservation.location.csz %></td>
           <td><%= reservation.occupancy %></td>
           <td><%= reservation.start_date %></td>
           <td><%= reservation.end_date %></td>
@@ -40,9 +40,7 @@
   </table>
 
 <% else %>
-
   <p>No current reservations</p>
-
 <% end %>
 
 <br>

@@ -29,7 +29,6 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.member = current_member
-
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to reservations_path, notice: 'Reservation added.' }

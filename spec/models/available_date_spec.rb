@@ -40,4 +40,20 @@ describe AvailableDate, type: :model do
     expect(available.held?).to be_truthy
   end
 
+  it "is properly updated when reserved for a member" do
+    available.reserve_for_member(member)
+    expect(available).to be_valid
+    expect(available.member_id).to eq member.id
+    expect(available.reserved?).to be_truthy
+  end
+
+  it "is properly released" do
+    available.reserve_for_member(member)
+    expect(available).to be_valid
+    expect(available.member_id).to eq member.id
+    expect(available.reserved?).to be_truthy
+    available.release
+    expect(available.member_id).to be_nil
+    expect(available.available?).to be_truthy
+  end
 end

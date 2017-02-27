@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  
+
   belongs_to :member
   has_many :pictures, dependent: :destroy
   has_many :reservations
@@ -10,8 +10,7 @@ class Location < ActiveRecord::Base
 
   LOC_TYPES = %w(Room Apartment House)
 
-  validates :loc_type, 
-    inclusion: { in: LOC_TYPES, message: "is not an appropriate type" }
+  validates :loc_type, inclusion: { in: LOC_TYPES, message: "is not an appropriate type" }
   validates :name, presence: true
   validates :description, presence: true
   validates :address_1, presence: true
@@ -21,7 +20,6 @@ class Location < ActiveRecord::Base
   validates :occupancy, numericality: { only_integer: true, message: "must be a whole number greater than zero" }
   validates :occupancy, numericality: { greater_than: 0, message: "must be a whole number greater than zero" }
 
-  
   scope :not_mine, ->(user) { where("member_id != ?", user) }
 
   def available?(date)

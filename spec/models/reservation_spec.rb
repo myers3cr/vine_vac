@@ -19,7 +19,7 @@ describe Reservation, type: :model do
     expect(reservation).to be_invalid
     expect(reservation.errors[:member_id]).to include("can't be blank")
   end
- 
+
   it "is invalid without an appropriate occupancy" do
     reservation.occupancy = nil
     expect(reservation).to be_invalid
@@ -28,13 +28,13 @@ describe Reservation, type: :model do
     expect(reservation).to be_invalid
     expect(reservation.errors[:occupancy]).to include("must be a whole number greater than zero")
   end
-  
+
   it "is invalid without a start_date" do
     reservation.start_date = nil
     expect(reservation).to be_invalid
     expect(reservation.errors[:start_date]).to include("can't be blank")
   end
-    
+
   it "is invalid without an end_date" do
     reservation.end_date = nil
     expect(reservation).to be_invalid
@@ -44,7 +44,7 @@ describe Reservation, type: :model do
   it "is invalid with start date before today" do
     reservation.start_date = DateTime.now - 1
     expect(reservation).to be_invalid
-    expect(reservation.errors[:start_date]).to include("must be today or after")
+    expect(reservation.errors[:start_date]).to include("must be today or later")
   end
 
   it "is invalid with end date before start date" do

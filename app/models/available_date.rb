@@ -16,4 +16,8 @@ class AvailableDate < ActiveRecord::Base
     update(status: :reserved, member: member)
   end
 
+  def release
+    update(status: :available, member: nil)
+  end
+
 end

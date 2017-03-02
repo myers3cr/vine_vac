@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Host must be able to add a location" do 
+feature "Host must be able to add a location" do
   let(:host) { FactoryGirl.create(:member) }
   let(:location) { FactoryGirl.build(:location) }
 
@@ -10,7 +10,7 @@ feature "Host must be able to add a location" do
     sign_in(host)
     click_link "Locations"
   end
-  
+
   scenario "host views location list" do
     expect(page).to have_content("My Locations")
     expect(page).to have_css("table")
@@ -73,8 +73,9 @@ feature "Host must be able to add a location" do
   end
 
   def fill_in_location_fields
-    select location.loc_type, from: "location[loc_type]"
     fill_in "location[name]", with: location.name
+    select location.nearest_lake, from: "location[nearest_lake]"
+    select location.loc_type, from: "location[loc_type]"
     fill_in "location[description]", with: location.description
     fill_in "location[occupancy]", with: location.occupancy
     fill_in "location[address_1]", with: location.address_1
@@ -82,7 +83,6 @@ feature "Host must be able to add a location" do
     fill_in "location[city]", with: location.city
     fill_in "location[state]", with: location.state
     fill_in "location[postal_code]", with: location.postal_code
-
   end
 
   def sign_in(who)

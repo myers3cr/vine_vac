@@ -8,24 +8,30 @@ describe Location, type: :model do
     expect(location).to be_valid
   end
 
+  it "is invalid without a nearest lake" do
+    location.nearest_lake = nil
+    expect(location).to be_invalid
+    expect(location.errors[:nearest_lake]).to include("is not a Finger Lake")
+  end
+
   it "is invalid without a loc_type" do
     location.loc_type = nil
     expect(location).to be_invalid
     expect(location.errors[:loc_type]).to include("is not an appropriate type")
   end
-    
+
   it "is invalid without a name" do
     location.name = nil
     expect(location).to be_invalid
     expect(location.errors[:name]).to include("can't be blank")
   end
-    
+
   it "is invalid without a description" do
     location.description = nil
     expect(location).to be_invalid
     expect(location.errors[:description]).to include("can't be blank")
   end
-  
+
   it "is invalid without an appropriate occupancy" do
     location.occupancy = nil
     expect(location).to be_invalid
@@ -34,13 +40,13 @@ describe Location, type: :model do
     expect(location).to be_invalid
     expect(location.errors[:occupancy]).to include("must be a whole number greater than zero")
   end
-  
+
   it "is invalid without an address_1" do
     location.address_1 = nil
     expect(location).to be_invalid
     expect(location.errors[:address_1]).to include("can't be blank")
   end
-  
+
   it "is valid without an address_2" do
     location.address_2 = nil
     expect(location).to be_valid

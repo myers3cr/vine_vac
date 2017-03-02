@@ -8,17 +8,19 @@ class Location < ActiveRecord::Base
   geocoded_by :full_street_address
   after_validation :geocode, if: -> (obj) { obj.address_1.present? and obj.address_changed? }
 
-  LOC_TYPES = %w(Room Apartment House)
+  LAKES = %w(Conesus Hemlock Canadice Honeoye Canandaigua Keuka Seneca Cayuga Owasco Skaneateles Otisco)
+  LOC_TYPES = %w(Room Apartment Condo House)
 
-  validates :loc_type, inclusion: { in: LOC_TYPES, message: "is not an appropriate type" }
   validates :name, presence: true
+  validates :nearest_lake, inclusion: { in: LAKES, message: "is not a Finger Lake"}
+  validates :loc_type, inclusion: { in: LOC_TYPES, message: "is not an appropriate type" }
+  validates :occupancy, numericality: { only_integer: true, message: "must be a whole number greater than zero" }
+  validates :occupancy, numericality: { greater_than: 0, message: "must be a whole number greater than zero" }
   validates :description, presence: true
   validates :address_1, presence: true
   validates :city, presence: true
   validates :state, presence: true
   validates :postal_code, format: { with: /\A\d{5}(?:-\d{4})?\z/ }
-  validates :occupancy, numericality: { only_integer: true, message: "must be a whole number greater than zero" }
-  validates :occupancy, numericality: { greater_than: 0, message: "must be a whole number greater than zero" }
 
   scope :not_mine, ->(user) { where("member_id != ?", user) }
 

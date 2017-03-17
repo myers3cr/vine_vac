@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. 
+# Turbolinks makes following links in your web application faster.
 # Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -69,11 +69,10 @@ gem 'fullcalendar-rails'
 group :development, :test do
   gem 'better_errors'
   gem 'capybara-email'
-  # gem 'capybara-webkit'
+  gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'ffaker'
-#  gem 'database_cleaner'
   gem 'launchy'
   gem 'letter_opener'
   gem 'rspec-rails'
@@ -82,7 +81,7 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
   gem 'simple_bdd'
   gem 'shoulda-matchers'
-  gem 'spring' 
+  gem 'spring'
 end
 
 group :test do
@@ -96,4 +95,3 @@ group :development do
   # Generate the files for application layout, nav links, flash with Bootstrap CSS
   gem 'rails_layout'
 end
-

@@ -8,7 +8,7 @@
   require 'shoulda/matchers'
   require 'pundit/rspec'
   require 'capybara/email/rspec'
-  
+
   Capybara.javascript_driver = :webkit
 
   ActiveRecord::Migration.maintain_test_schema!
@@ -17,11 +17,11 @@
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
     config.use_transactional_fixtures = false
-    
+
     config.before(:suite) do
       DatabaseCleaner.strategy = :truncation
       DatabaseCleaner.clean_with(:truncation)
-    end 
+    end
 
     config.before(:each) do
       DatabaseCleaner.start
@@ -32,18 +32,19 @@
     end
 
     config.include SimpleBdd, type: :feature
-    
+
     Shoulda::Matchers.configure do |config|
       config.integrate do |with|
         with.test_framework :rspec
         with.library :rails
       end
     end
-    
+
+    # simplified FactoryGirl Syntax
     config.include FactoryGirl::Syntax::Methods
 
     config.infer_spec_type_from_file_location!
 
-    config.filter_rails_from_backtrace!   
+    config.filter_rails_from_backtrace!
 
   end

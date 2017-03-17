@@ -1,6 +1,5 @@
 <div class="well">
-  <%= f.input :name,
-        placeholder: 'Yellow bedroom' %>
+  <%= f.input :name %>
   <%= f.input :nearest_lake,
         required: true,
         label: 'Nearest Lake',
@@ -11,23 +10,16 @@
         label: 'Accomodation type',
         collection: Location::LOC_TYPES,
         selected: Location::LOC_TYPES[0] %>
-  <%= f.input :description,
-        placeholder: 'One twin bed' %>
-  <%= f.input :occupancy, as: :integer,
-        placeholder: '2' %>
+  <%= f.input :description %>
+  <%= f.input :occupancy, as: :integer %>
   <%= f.input :address_1,
-        label: "Street Address",
-        placeholder: '123 Sesame Street' %>
+        label: "Street Address" %>
   <%= f.input :address_2,
-        label: 'Secondary Address (optional)',
-        placeholder: 'Suite 17' %>
-  <%= f.input :city,
-        placeholder: 'Anytown' %>
-  <%= f.input :state,
-        placeholder: 'NY' %>
+        label: 'Secondary Address (optional)' %>
+  <%= f.input :city %>
+  <%= f.input :state %>
   <%= f.input :postal_code,
-        label: "Zip",
-        placeholder: '12345' %>
+        label: "Zip" %>
   <%= f.submit "Save", class: "btn btn-primary" %>
   &nbsp;&nbsp;
   <%= link_to 'Back to list', locations_path %>

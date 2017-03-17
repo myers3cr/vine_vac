@@ -88,7 +88,8 @@ describe Location, type: :model do
   end
 
   it "returns the full street address as a single string for geolocation" do
-    expect(location.full_street_address).to eq(location.address_1 + ", " + location.city + ", " + location.state + ", " + "US")
+    fsa = location.address_1 + ", " + location.city + ", " + location.state + ", " + "US"
+    expect(location.full_street_address).to eq fsa
   end
 
   it "adds latitude and longitude when saved" do

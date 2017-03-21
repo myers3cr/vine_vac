@@ -2,10 +2,13 @@ require 'rails_helper'
 
 describe Reservation, type: :model do
 
-  let(:reservation) { FactoryGirl.create(:reservation) }
+  let(:reservation) { FactoryGirl.build(:reservation) }
+  let(:available) { FactoryGirl.build(:available_reservation) }
+  let(:unavailable) { FactoryGirl.build(:unavailable_reservation) }
 
   it "has a valid factory" do
-    expect(reservation).to be_valid
+    expect(available).to be_valid
+    expect(unavailable).to be_invalid
   end
 
   it "is invalid without a member id" do

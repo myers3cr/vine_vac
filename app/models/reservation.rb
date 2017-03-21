@@ -11,7 +11,7 @@ class Reservation < ActiveRecord::Base
   validate :start_date_today_or_after
   validate :end_date_after_start_date
 
-  # validate :dates_are_available
+  validate :dates_are_available?
 
 private
 
@@ -27,12 +27,12 @@ private
       (start_date && end_date) && ((end_date - start_date) >= 1)
   end
 
-  # def dates_are_available
-  #   if (start_date && end_date)
-  #     dates = start_date..(end_date - 1.day)
-  #     availables = dates.map { |d| Location.find(location_id).available?(d) }
-  #     errors.add(:start_date, "not all dates are available") unless availables.count(false) == 0
-  #   end
-  # end
+  def dates_are_available?
+    if (start_date && end_date)
+      dates = start_date..(end_date - 1.day)
+      availables = dates.map { |d| Location.find(location_id).available?(d) }
+      errors.add(:start_date, "not all dates are available") unless availables.count(false) == 0
+    end
+  end
 
 end

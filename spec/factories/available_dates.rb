@@ -4,6 +4,6 @@ FactoryGirl.define do
     member nil
     available_date Date.today.to_s
     status :available
-    price { (100.0*rand).round(2) }    
+    price { (100.0*rand).round(2) }
   end
 end

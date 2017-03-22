@@ -66,6 +66,8 @@ feature "Host must be able to add a location" do
     expect(page).to have_content(location.name + " availability")
   end
 
+# utility functions
+
   def save_new_location
     click_button "New Location"
     fill_in_location_fields

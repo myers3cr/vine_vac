@@ -23,8 +23,7 @@ class Location < ActiveRecord::Base
   validates :postal_code, format: { with: /\A\d{5}(?:-\d{4})?\z/ }
 
   scope :not_mine, ->(user) { where("member_id != ?", user) }
-  # scope :available?, ->(date) { self.available_dates.where(available_date: date).empty? }
-
+  scope :near_lake, ->(lake) { where("nearest_lake = ?", lake) }
   scope :with_available_dates, ->(date_range_array) {
     joins(:available_dates).
     merge(AvailableDate.

@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Location, type: :model do
 
   let(:location) { FactoryGirl.build(:location) }
+  let(:conesus_location) { create(:location, nearest_lake: "Conesus") }
 
   it "has a valid factory" do
     expect(location).to be_valid
@@ -99,6 +100,19 @@ describe Location, type: :model do
     location.reload
     expect(location.latitude).to_not be_blank
     expect(location.longitude).to_not be_blank
+  end
+
+  it "can search by nearest lake" do
+    conesus_location.save
+    expect(Location.near_lake("Conesus").first).to eq conesus_location
+  end
+
+  it "can find locations with available dates" do
+    available_location = create(:location)
+    available_date = build(:available_date)
+    available_date.location = available_location
+    available_date.save
+    expect((Location.with_available_dates(Date.today)).first).to eq available_location
   end
 
 end

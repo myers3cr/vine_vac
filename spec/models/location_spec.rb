@@ -109,7 +109,7 @@ describe Location, type: :model do
 
   it "can find locations with available dates" do
     available_location = create(:location)
-    available_date = build(:available_date)
+    available_date = build(:available_date, available_date: Date.today)
     available_date.location = available_location
     available_date.save
     expect((Location.with_available_dates(Date.today)).first).to eq available_location

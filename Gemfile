@@ -56,6 +56,8 @@ gem 'money-rails'
 # calendar for availability
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
+# dump database to seed file
+gem 'seed_dump'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -3,7 +3,8 @@ require 'rails_helper'
 describe Location, type: :model do
 
   let(:location) { FactoryGirl.build(:location) }
-  let(:conesus_location) { create(:location, nearest_lake: "Conesus") }
+  let(:conesus_location) { create(:location, city: "Conesus", state: "NY", nearest_lake: "Conesus") }
+  let(:canandaigua_location) { create(:location, city: "Canandaigua", state: "NY", postal_code: "14424") }
 
   it "has a valid factory" do
     expect(location).to be_valid
@@ -113,6 +114,13 @@ describe Location, type: :model do
     available_date.location = available_location
     available_date.save
     expect((Location.with_available_dates(Date.today)).first).to eq available_location
+  end
+
+  it "can search by nearby locations" do
+    conesus_location.save
+    canandaigua_location.save
+    expect(Location.nearby("Canandaigua, NY").first).to eq canandaigua_location
+    expect(Location.nearby("Canandaigua, NY").first).to_not eq conesus_location
   end
 
 end

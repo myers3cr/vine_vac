@@ -22,13 +22,13 @@ feature "Member manages reservations" do
     expect(page).to have_text("No current reservations")
   end
 
-  scenario "member views search form" do
-    click_button "New Reservation"
-    expect(page).to have_content("Search for available properties")
-    expect(page).to have_css("form")
-    expect(page).to have_content("Search")
-  end
-
+  # scenario "member views search form" do
+  #   click_button "New Reservation"
+  #   expect(page).to have_content("Search for available properties")
+  #   expect(page).to have_css("form")
+  #   expect(page).to have_content("Search")
+  # end
+  #
   scenario "member creates a reservation and views non-empty list" do
     expect {
       save_new_reservation(reservation)

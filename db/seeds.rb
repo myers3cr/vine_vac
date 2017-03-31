@@ -23,11 +23,45 @@ Profile.create!([
 ])
 
 Location.create!([
-  {member_id: 2, name: "Room on Conesus", description: "A Room", address_1: "123 Sesame Street", address_2: "", city: "Conesus", state: "NY", postal_code: "12345", loc_type: "Room", latitude: nil, longitude: nil, occupancy: 2, nearest_lake: "Conesus"}
+  {member_id: 1, name: "Room on Conesus", description: "A Room", address_1: "5564 E Lake Rd", address_2: "", city: "Conesus", state: "NY", postal_code: "14435", loc_type: "Room", latitude: nil, longitude: nil, occupancy: 2, nearest_lake: "Conesus"},
+  {member_id: 1, name: "House on Seneca", description: "4 BR House", address_1: "200 Seneca Street", address_2: "", city: "Dresden", state: "NY", postal_code: "14441", loc_type: "House", latitude: nil, longitude: nil, occupancy: 8, nearest_lake: "Seneca"},
+  {member_id: 1, name: "Apartment on Canandaigua", description: "1 BR Apartment", address_1: "28 Lakeshore Dr", address_2: "Apt. 2B", city: "Canandaigua", state: "NY", postal_code: "14424", loc_type: "House", latitude: nil, longitude: nil, occupancy: 8, nearest_lake: "Seneca"},
+  {member_id: 2, name: "Room on Canandaigua", description: "A Room", address_1: "4478 Lake Dr", address_2: "", city: "Canandaigua", state: "NY", postal_code: "14424", loc_type: "Room", latitude: nil, longitude: nil, occupancy: 2, nearest_lake: "Canandaigua"},
+  {member_id: 2, name: "Apartment on Skaneateles", description: "2 BR apartment", address_1: "3 Leitch Avenue", address_2: "", city: "Skaneateles", state: "NY", postal_code: "13152", loc_type: "Apartment", latitude: nil, longitude: nil, occupancy: 4, nearest_lake: "Skaneateles"},
+  {member_id: 3, name: "House on Cayuga", description: "High above Cayuga's waters", address_1: "123 Utica Street", address_2: "", city: "Ithaca", state: "NY", postal_code: "14852", loc_type: "House", latitude: nil, longitude: nil, occupancy: 8, nearest_lake: "Cayuga"}
 ])
 
 (Date.today..(Date.today + 3.weeks)).each do |d|
   AvailableDate.create!([
     {location_id: 1, member_id: nil, available_date: d, status: 0, price_cents: 2000, price_currency: "USD"},
+  ])
+end
+
+(Date.new(2017,6,1).all_month()).each do |d|
+  AvailableDate.create!([
+    {location_id: 2, member_id: nil, available_date: d, status: 0, price_cents: 6000, price_currency: "USD"},
+  ])
+end
+(Date.new(2017,7,4).all_week()).each do |d|
+  AvailableDate.create!([
+    {location_id: 2, member_id: nil, available_date: d, status: 0, price_cents: 10000, price_currency: "USD"},
+  ])
+end
+
+(Date.new(2017,7,4).all_week()).each do |d|
+  AvailableDate.create!([
+    {location_id: 3, member_id: nil, available_date: d, status: 0, price_cents: 6000, price_currency: "USD"},
+  ])
+end
+
+(Date.new(2017,8,1)..Date.new(2017,8,14)).each do |d|
+  AvailableDate.create!([
+    {location_id: 4, member_id: nil, available_date: d, status: 0, price_cents: 5000, price_currency: "USD"},
+  ])
+end
+
+(Date.new(2017,8,1).all_month()).each do |d|
+  AvailableDate.create!([
+    {location_id: 5, member_id: nil, available_date: d, status: 0, price_cents: 8000, price_currency: "USD"},
   ])
 end

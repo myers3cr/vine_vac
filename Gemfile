@@ -58,6 +58,8 @@ gem 'momentjs-rails'
 gem 'fullcalendar-rails'
 # dump database to seed file
 gem 'seed_dump'
+# use puma web server
+gem 'puma', '~> 3.9', '>= 3.9.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

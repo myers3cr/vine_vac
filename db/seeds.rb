@@ -37,31 +37,31 @@ Location.create!([
   ])
 end
 
-(Date.new(2017,6,1).all_month()).each do |d|
+((Date.today+1.month).all_month()).each do |d|
   AvailableDate.create!([
     {location_id: 2, member_id: nil, available_date: d, status: 0, price_cents: 6000, price_currency: "USD"},
   ])
 end
-(Date.new(2017,7,4).all_week()).each do |d|
+((Date.today+1.week).all_week()).each do |d|
   AvailableDate.create!([
     {location_id: 2, member_id: nil, available_date: d, status: 0, price_cents: 10000, price_currency: "USD"},
   ])
 end
 
-(Date.new(2017,7,4).all_week()).each do |d|
+(Date.today.all_week()).each do |d|
   AvailableDate.create!([
     {location_id: 3, member_id: nil, available_date: d, status: 0, price_cents: 6000, price_currency: "USD"},
   ])
 end
 
-(Date.new(2017,8,1)..Date.new(2017,8,14)).each do |d|
+(Date.today.next_month().all_month()).each do |d|
   AvailableDate.create!([
     {location_id: 4, member_id: nil, available_date: d, status: 0, price_cents: 5000, price_currency: "USD"},
   ])
 end
 
-(Date.new(2017,8,1).all_month()).each do |d|
-  AvailableDate.create!([
+((Date.today+2.days).all_week()).each do |d|
+    AvailableDate.create!([
     {location_id: 5, member_id: nil, available_date: d, status: 0, price_cents: 8000, price_currency: "USD"},
   ])
 end

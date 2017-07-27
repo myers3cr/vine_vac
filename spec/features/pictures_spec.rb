@@ -8,7 +8,7 @@ feature "Host must be able to add a photo to a location" do
     visit root_path
     click_link "Sign in"
     sign_in(host)
-    click_link "Locations"
+    click_link "Stay"
     save_new_location
     page.find('tr', text: location.name).click_link('Edit')
   end

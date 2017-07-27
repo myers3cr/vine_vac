@@ -9,7 +9,7 @@ feature "Host must be able to manage available dates" do
     visit root_path
     click_link "Sign in"
     sign_in(host)
-    click_link "Locations"
+    click_link "Stay"
   end
   
   scenario "host views empty available date list" do

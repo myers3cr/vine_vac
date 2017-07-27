@@ -13,7 +13,7 @@ feature "Member manages reservations" do
     visit root_path
     click_link "Sign in"
     sign_in(me)
-    click_link "Reservations"
+    click_link "Host"
   end
 
   scenario "member views empty reservation list" do

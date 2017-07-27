@@ -8,7 +8,7 @@ feature "Host must be able to add a location" do
     visit root_path
     click_link "Sign in"
     sign_in(host)
-    click_link "Locations"
+    click_link "Stay"
   end
 
   scenario "host views location list" do

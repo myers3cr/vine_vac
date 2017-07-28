@@ -17,7 +17,7 @@ feature "Member manages reservations" do
   end
 
   scenario "member views empty reservation list" do
-    expect(page).to have_content("My Reservations")
+    expect(page).to have_content("Reservations")
     expect(page).to_not have_css("table")
     expect(page).to have_text("No current reservations")
   end
@@ -34,7 +34,7 @@ feature "Member manages reservations" do
       save_new_reservation(reservation)
     }.to change(Reservation, :count).by(1)
     expect(page).to have_content("Reservation added")
-    expect(page).to have_content("My Reservations")
+    expect(page).to have_content("Reservations")
     expect(page).to have_css("table > thead > tr", text: "Location")
     expect(page).to have_css("table > thead > tr", text: "Guests")
     expect(page).to have_css("table > thead > tr", text: "Check-in date")

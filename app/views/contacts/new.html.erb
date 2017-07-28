@@ -3,7 +3,7 @@
   <%= simple_form_for @contact, html: { class: "well form-horizontal" } do |f| %>
     <%= f.input :name, required: true %>
     <%= f.input :email, required: true %>
-    <%= f.input :message, as: :text, required: true %>
+    <%= f.input :message, as: :text, input_html: { rows: 5 }, required: true %>
     <div>
       <%= f.button :submit, 'Send message', class: "btn btn-primary" %>
     </div>

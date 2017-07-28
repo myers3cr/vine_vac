@@ -12,7 +12,7 @@ feature "Host must be able to add a location" do
   end
 
   scenario "host views location list" do
-    expect(page).to have_content("My Locations")
+    expect(page).to have_content("Locations")
     expect(page).to have_css("table")
     expect(page).to have_css("th")
   end

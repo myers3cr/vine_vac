@@ -1,0 +1,10 @@
+<%= simple_form_for [ :host, @location, @picture ], method: :put,
+  :html => { :class => 'form-horizontal', multipart: true } do |f| %>
+  <%= image_tag @picture.image.url(:medium) %>
+  <%= f.input :caption %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    &nbsp;&nbsp;
+    <%= link_to 'Back to list', host_location_pictures_path(@location) %>
+  </div>
+<% end %> 

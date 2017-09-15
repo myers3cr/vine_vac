@@ -1,0 +1,15 @@
+<div class="form-inputs">
+  <%= f.association :location, collection: Location.not_mine(@member) %>
+  <%= f.input :occupancy, label: "Number of guests",
+              as: :integer %>
+  <%= f.input :start_date, label: "Check-in date",
+              as: :string, input_html: { class: "datepicker date" } %>
+  <%= f.input :end_date, label: "Check-out date",
+              as: :string, input_html: { class: "datepicker" }  %>
+</div>
+
+<div class="form-actions">
+  <%= f.submit "Save", class: "btn btn-primary" %>
+  &nbsp;&nbsp;
+  <%= link_to 'Back to list', host_reservations_path %>
+</div>

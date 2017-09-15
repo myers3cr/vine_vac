@@ -1,0 +1,10 @@
+<%= simple_form_for [:host, @location], defaults: { input_html: { class: 'form-control input_sm' } } do |f| %>
+  <div class="locationform col-xs-offset-2 col-xs-4">
+    <h3 class="text-center"><%= @action %> Location</h3>
+    <%= render 'form', f: f %>
+  </div>
+  <div class="pictureform col-xs-4">
+    <h3 class="text-center">Photos</h3>
+    <%= render 'gallery', f: f %>
+  </div>
+<% end %>

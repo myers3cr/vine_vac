@@ -1,0 +1,23 @@
+<div class="well">
+  <div id="dashboard-calendar">
+  <div id="calendar"></div>
+
+  <br />
+  <%= link_to "Update Availability", host_location_available_dates_path(@location), class: 'btn btn-primary', type: "button" %>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('#calendar').fullCalendar({
+    header: {
+      left: "",
+      center: "title",
+      right: "",
+    },
+    height: "auto",
+    defaultView: "month",
+    // put your options and callbacks here
+    events: '<%=host_location_available_dates_path(@location)%>.json',
+    eventBackgroundColor: "green"
+  })
+});
+</script>
